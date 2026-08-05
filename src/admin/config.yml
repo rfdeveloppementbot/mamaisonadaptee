@@ -26,7 +26,7 @@ collections:
     files:
       - name: "contenu"
         label: "Page d'accueil"
-        file: "src/_data/site.json"
+        file: "src/_data/contenu.json"
         fields:
           - { name: titre_page, label: "Titre du navigateur (SEO)", widget: string }
           - { name: description_page, label: "Description Google (SEO)", widget: text }
