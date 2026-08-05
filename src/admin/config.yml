@@ -1,0 +1,123 @@
+# ============================================================
+#  A COMPLETER : remplacer VOTRE-COMPTE/VOTRE-DEPOT
+#  Authentification : compte GitHub (voir README, etape 3)
+# ============================================================
+backend:
+  name: github
+  repo: VOTRE-COMPTE/VOTRE-DEPOT
+  branch: main
+
+# Solution de repli, si le fournisseur OAuth de Netlify n'est pas disponible :
+# creez un compte sur decapbridge.com et utilisez cette configuration a la place.
+# backend:
+#   name: git-gateway
+#   repo: VOTRE-COMPTE/VOTRE-DEPOT
+#   branch: main
+#   identity_url: https://auth.decapbridge.com/sites/VOTRE-ID-DECAPBRIDGE
+#   gateway_url: https://gateway.decapbridge.com
+
+locale: "fr"
+media_folder: "src/images"
+public_folder: "/images"
+
+collections:
+  - name: "site"
+    label: "Contenu du site"
+    files:
+      - name: "contenu"
+        label: "Page d'accueil"
+        file: "src/_data/site.json"
+        fields:
+          - { name: titre_page, label: "Titre du navigateur (SEO)", widget: string }
+          - { name: description_page, label: "Description Google (SEO)", widget: text }
+
+          - { name: agence, label: "Nom de l'agence", widget: string }
+          - { name: telephone, label: "Téléphone affiché", widget: string, hint: "Exemple : 04 78 00 00 00" }
+          - { name: telephone_lien, label: "Téléphone cliquable", widget: string, hint: "Format international, ex : +33478000000" }
+          - { name: email, label: "E-mail", widget: string }
+          - { name: site_web, label: "Adresse du site", widget: string }
+          - { name: adresse, label: "Adresse / secteur", widget: string }
+          - { name: horaires, label: "Horaires", widget: string }
+          - { name: gerant, label: "Gérant", widget: string }
+          - { name: siren, label: "SIREN", widget: string }
+
+          - { name: hero_surtitre, label: "Haut de page — surtitre", widget: string }
+          - { name: hero_titre, label: "Haut de page — titre", widget: string }
+          - { name: hero_titre_accent, label: "Haut de page — titre en rose", widget: string }
+          - { name: hero_texte, label: "Haut de page — texte", widget: text }
+          - { name: hero_gages, label: "Haut de page — gages de confiance", widget: list }
+          - { name: hero_image_avant, label: "Photo AVANT (haut de page)", widget: image, required: false }
+          - { name: hero_image_apres, label: "Photo APRÈS (haut de page)", widget: image, required: false }
+          - { name: hero_legende, label: "Légende de la photo", widget: string }
+
+          - { name: projet_titre, label: "Bloc projet — titre", widget: string }
+          - { name: projet_sous_titre, label: "Bloc projet — sous-titre", widget: string }
+          - name: projet_choix
+            label: "Bloc projet — les choix"
+            widget: list
+            fields:
+              - { name: icone, label: "Icône", widget: select, options: [douche, escalier, cuisine, domotique, pmr, piece] }
+              - { name: libelle, label: "Libellé", widget: string }
+
+          - { name: aide_montant, label: "Aides — montant affiché", widget: string }
+          - { name: aide_titre, label: "Aides — titre", widget: string }
+          - { name: aide_texte, label: "Aides — texte", widget: text }
+
+          - { name: solutions_titre, label: "Solutions — titre", widget: string }
+          - { name: solutions_texte, label: "Solutions — texte", widget: text }
+          - name: solutions
+            label: "Les solutions"
+            widget: list
+            fields:
+              - { name: icone, label: "Icône", widget: select, options: [douche, escalier, cuisine, domotique, pmr, piece] }
+              - { name: titre, label: "Titre", widget: string }
+              - { name: texte, label: "Texte", widget: text }
+              - { name: points, label: "Puces", widget: list }
+
+          - { name: realisations_titre, label: "Réalisations — titre", widget: string }
+          - { name: realisations_texte, label: "Réalisations — texte", widget: text }
+          - name: realisations
+            label: "Les réalisations"
+            widget: list
+            fields:
+              - { name: commune, label: "Commune", widget: string }
+              - { name: duree, label: "Durée du chantier", widget: string, hint: "Exemple : 3 jours" }
+              - { name: titre, label: "Titre du chantier", widget: string }
+              - { name: image, label: "Photo avant/après", widget: image, required: false }
+
+          - { name: etapes_titre, label: "Étapes — titre", widget: string }
+          - name: etapes
+            label: "Les étapes"
+            widget: list
+            fields:
+              - { name: titre, label: "Titre", widget: string }
+              - { name: texte, label: "Texte", widget: text }
+
+          - { name: atouts_gros_mot, label: "Atouts — mot en gros", widget: string }
+          - { name: atouts_titre, label: "Atouts — titre", widget: string }
+          - name: atouts
+            label: "Les atouts"
+            widget: list
+            fields:
+              - { name: icone, label: "Icône", widget: select, options: [personne, lieu, etude, coeur, bouclier, familles] }
+              - { name: titre, label: "Titre", widget: string }
+              - { name: texte, label: "Texte", widget: text }
+
+          - { name: zone_titre, label: "Zone — titre", widget: string }
+          - { name: zone_texte, label: "Zone — texte", widget: text }
+          - { name: communes, label: "Communes desservies", widget: list }
+          - { name: zone_note, label: "Zone — note de bas", widget: string }
+
+          - { name: avis_titre, label: "Avis — titre", widget: string }
+          - name: avis
+            label: "Les avis clients"
+            widget: list
+            fields:
+              - { name: note, label: "Note sur 5", widget: number, min: 1, max: 5, value_type: int }
+              - { name: texte, label: "Avis", widget: text }
+              - { name: auteur, label: "Auteur", widget: string }
+              - { name: commune, label: "Commune", widget: string }
+
+          - { name: contact_titre, label: "Contact — titre", widget: string }
+          - { name: contact_texte, label: "Contact — texte", widget: text }
+          - { name: formulaire_mention, label: "Formulaire — mention RGPD", widget: text }

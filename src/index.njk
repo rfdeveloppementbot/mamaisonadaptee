@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ site.titre_page }}</title>
+<meta name="description" content="{{ site.description_page }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     COULEURS ISSUES DE LA CHARTE GRAPHIQUE OFFICIELLE (2021)
+       Rose fuchsia  #E6007E   (CMJN 0/100/0/0)
+       Violet        #622977   (CMJN 76/98/13/4)
+       Gris foncé    #5D5D5D   |  Gris clair  #A3A2A2
+       Dégradé autorisé : violet -> rose, à 0°, 45° ou 90°
+       Typographie : Acumin Pro en priorité (Adobe Fonts) ;
+                     à défaut Montserrat (utilisée ici).
+     >>> RESTE À FAIRE : insérer le LOGO OFFICIEL (fichier vectoriel).
+         Le logo ne doit JAMAIS être redessiné, ni le texte utilisé
+         sans la pastille. Hauteur mini 7 mm, zone de sécurité = 50 %
+         de la taille de la pastille.
+     ============================================================ */
+  :root{
+    --brand:#E6007E;          /* rose fuchsia officiel */
+    --brand-2:#C80070;        /* rose survol */
+    --brand-deep:#A8005C;     /* rose foncé : texte/liens, contraste AA */
+    --violet:#622977;         /* violet officiel */
+    --violet-2:#4E1F5F;       /* violet foncé (survol/fond) */
+    --ink:#3A3A3A;            /* texte principal, dérivé du gris charte */
+    --ink-soft:#5D5D5D;       /* gris foncé officiel */
+    --grey-light:#A3A2A2;     /* gris clair officiel */
+    --cream:#FFFFFF;          /* fond de page blanc */
+    --sand:#F6F6F6;           /* panneaux doux, gris neutre */
+    --line:#E4E4E4;           /* filets */
+    --radius:18px;
+    --maxw:1140px;
+    --shadow:0 18px 44px -26px rgba(58,58,58,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:'Montserrat',system-ui,sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;line-height:1.14;margin:0;letter-spacing:-.01em}
+  p{margin:0 0 1em}
+  a{color:var(--brand-deep)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:14px 20px;border-radius:0 0 12px 0;z-index:200}
+  .skip:focus{left:0}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,.btn:focus-visible{
+    outline:3px solid var(--brand-deep);outline-offset:3px;border-radius:6px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:'Montserrat',sans-serif;
+    font-weight:700;font-size:1.02rem;text-decoration:none;border:none;cursor:pointer;
+    padding:15px 26px;min-height:54px;border-radius:999px;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}}
+  .btn-primary{background:var(--brand);color:#fff;box-shadow:0 12px 26px -14px rgba(229,0,126,.85)}
+  .btn-primary:hover{background:var(--brand-2);transform:translateY(-2px)}
+  .btn-ghost{background:#fff;color:var(--brand-deep);border:2px solid var(--brand)}
+  .btn-ghost:hover{background:var(--sand)}
+  .ico{line-height:1;display:inline-flex;align-items:center}
+
+  /* En-tête */
+  header.site{position:sticky;top:0;z-index:100;background:rgba(255,248,244,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .site .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:78px}
+  .logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink)}
+  /* LOGO OFFICIEL — hauteur mini 7 mm à l'impression ; les marges tiennent lieu
+     de zone de sécurité (50 % de la taille de la pastille). Ne pas redessiner. */
+  /* Icônes vectorielles (remplacent les emojis, rendu identique partout) */
+  .sprite{position:absolute;width:0;height:0;overflow:hidden}
+  .i{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;
+     stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  /* Logo intégré : les couleurs se pilotent par variables */
+  .mark-img{height:34px;width:180px;display:block}
+  footer.site .mark-img{--lg-dark:#FFFFFF;--lg-light:#E4D6EA}
+  .agency{font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:500;color:var(--ink-soft);
+    border-left:1px solid var(--line);padding-left:16px;white-space:nowrap}
+  @media (max-width:560px){.agency{display:none}}
+  .head-cta{display:flex;align-items:center;gap:12px}
+  .phone-head{display:inline-flex;align-items:center;gap:.5em;font-weight:700;color:var(--brand-deep);text-decoration:none;font-size:1.1rem}
+  @media (max-width:820px){.phone-head span.txt{display:none}.head-cta .btn-ghost{display:none}}
+
+  /* HERO */
+  .hero{position:relative;padding:72px 0 56px}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);flex:none}
+  .eyebrow{display:inline-flex;align-items:center;gap:.5em;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    font-size:.8rem;color:var(--brand-deep);background:#fff;border:1px solid var(--line);padding:8px 16px;border-radius:999px;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.3rem,4.8vw,3.6rem)}
+  .hero h1 em{font-style:normal;color:var(--brand-deep)}
+  .hero .lead{font-size:1.2rem;color:var(--ink-soft);max-width:36ch;margin:20px 0 30px}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:14px}
+  .hero .reassure{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px 26px;font-size:.96rem;color:var(--ink-soft)}
+  .hero .reassure span{display:inline-flex;align-items:center;gap:.5em}
+  .hero .reassure .ico{color:var(--brand-deep);font-size:1.05rem;display:flex}
+  .hero-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .hero-card .ba{display:grid;grid-template-columns:1fr 1fr}
+  .hero-card figure{margin:0;position:relative;aspect-ratio:4/5;display:grid;place-items:center;
+    background:var(--sand);color:var(--ink-soft);text-align:center;padding:18px}
+  .hero-card figure:first-child{background:#ECECEC}
+  .hero-card .tag{position:absolute;top:12px;left:12px;background:rgba(42,33,28,.82);color:#fff;font-size:.72rem;
+    font-weight:700;letter-spacing:.05em;padding:5px 12px;border-radius:999px;text-transform:uppercase}
+  .hero-card .cap{padding:15px 20px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-soft)}
+  .ph{font-size:.84rem;opacity:.85;line-height:1.4}
+
+  /* Bloc "Décrivez-nous votre projet" (signature franchiseur) */
+  .project{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .project .wrap{padding:40px 24px}
+  .project h2{font-size:clamp(1.5rem,2.6vw,2rem);text-align:center;margin-bottom:8px}
+  .project p.sub{text-align:center;color:var(--ink-soft);margin:0 auto 28px;max-width:50ch}
+  .choices{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .choice{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;text-decoration:none;
+    color:var(--ink);background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:22px 14px;
+    font-weight:600;font-size:.98rem;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+  @media (prefers-reduced-motion:reduce){.choice{transition:none}}
+  .choice:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:var(--shadow)}
+  .choice .pic{width:52px;height:52px;border-radius:50%;background:#fff;border:1px solid var(--line);
+    display:grid;place-items:center;font-size:1.55rem;color:var(--brand)}
+  @media (max-width:900px){.choices{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.choices{grid-template-columns:1fr}}
+
+  /* Bandeau aides */
+  .aid{background:linear-gradient(45deg,var(--violet),var(--brand))}
+  .aid .wrap{padding:34px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:22px 40px;justify-content:space-between}
+  .aid .left{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .aid .pa{background:#fff;border-radius:16px;padding:14px 18px;font-weight:700;color:var(--violet);
+    font-family:'Montserrat',sans-serif;text-align:center;line-height:1.1}
+  .aid .pa small{display:block;font-size:.72rem;font-weight:600;color:var(--ink-soft);letter-spacing:.04em;text-transform:uppercase}
+  .aid .pa b{font-size:1.9rem;display:block;margin-top:2px}
+  .aid .copy{max-width:46ch;color:#fff}
+  .aid .copy b{font-size:1.2rem;display:block;margin-bottom:4px;font-family:'Montserrat',sans-serif}
+  .aid .copy p{margin:0;color:rgba(255,255,255,.92)}
+  .aid .btn{background:#fff;color:var(--violet);white-space:nowrap}
+  .aid .btn:hover{background:var(--sand);transform:translateY(-2px)}
+
+  /* Sections */
+  section{padding:78px 0;position:relative}
+  .sec-head{max-width:62ch;margin-bottom:44px}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  .kicker{color:var(--brand-deep);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;margin-bottom:12px}
+  .sec-head h2{font-size:clamp(1.8rem,3.3vw,2.6rem)}
+  .sec-head p{font-size:1.1rem;color:var(--ink-soft);margin-top:14px}
+
+  /* Solutions */
+  .solutions{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .sol{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+    transition:transform .18s ease,box-shadow .18s ease}
+  @media (prefers-reduced-motion:reduce){.sol{transition:none}}
+  .sol:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .sol .ic{width:60px;height:60px;border-radius:14px;background:var(--sand);display:grid;place-items:center;font-size:2.1rem;margin-bottom:18px;color:var(--brand)}
+  .sol h3{font-size:1.35rem;margin-bottom:8px}
+  .sol p{color:var(--ink-soft);margin:0 0 12px}
+  .sol ul{margin:0;padding-left:1.1em;color:var(--ink-soft);font-size:.96rem}
+  .sol li{margin-bottom:4px}
+
+  /* Réalisations */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .real{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    transition:transform .18s ease,box-shadow .18s ease}
+  @media (prefers-reduced-motion:reduce){.real{transition:none}}
+  .real:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .real .img{position:relative;aspect-ratio:4/3;background:var(--sand);display:grid;place-items:center;color:var(--ink-soft);text-align:center;padding:16px}
+  .real .img .tag{position:absolute;top:10px;left:10px;background:var(--brand);color:#fff;font-size:.7rem;font-weight:800;padding:5px 11px;border-radius:999px}
+  .real .img .days{position:absolute;bottom:10px;right:10px;background:rgba(42,33,28,.82);color:#fff;font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:999px}
+  .real .body{padding:18px 20px}
+  .real .loc{font-size:.78rem;color:var(--brand-deep);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .real h3{font-size:1.08rem;margin:6px 0 0;line-height:1.3}
+  .gallery-note{margin-top:18px;font-size:.94rem;color:var(--ink-soft)}
+
+  /* Étapes (5) */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;counter-reset:step}
+  .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 20px;position:relative}
+  .step .n{counter-increment:step;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;
+    width:44px;height:44px;border-radius:50%;background:var(--brand);display:grid;place-items:center;margin-bottom:16px}
+  .step .n::before{content:counter(step)}
+  .step h3{font-size:1.08rem;margin-bottom:8px;line-height:1.25}
+  .step p{color:var(--ink-soft);margin:0;font-size:.93rem}
+  @media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+  /* Atouts réseau */
+  .atouts{background:var(--violet);color:#EFE6F2}
+  .atouts .head-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:34px}
+  .atouts .big{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--brand);white-space:nowrap}
+  .atouts h2{font-size:clamp(1.5rem,2.6vw,2rem);color:#fff}
+  .atouts .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .atout{display:flex;gap:14px;align-items:flex-start;background:var(--violet-2);border:1px solid #74408A;border-radius:14px;padding:20px}
+  .atout .ic{color:var(--brand);font-size:1.5rem;line-height:1;display:flex}
+  .atout b{display:block;color:#fff;margin-bottom:3px;font-family:'Montserrat',sans-serif;font-weight:600}
+  .atout span{color:#D5C4DC;font-size:.94rem}
+  @media (max-width:820px){.atouts .grid{grid-template-columns:1fr}}
+
+
+  /* Zone d'intervention */
+  .towns{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+  .towns li{background:var(--sand);border:1px solid var(--line);border-radius:999px;
+    padding:9px 18px;font-size:.96rem;color:var(--ink)}
+  .towns li.more{background:none;border-style:dashed;color:var(--ink-soft)}
+  .zone-note{margin-top:20px;font-size:.96rem;color:var(--ink-soft)}
+
+  /* Avis */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
+  .rev .stars{color:#F5A623;font-size:1.05rem;letter-spacing:2px;margin-bottom:10px}
+  .rev p{font-style:italic;color:var(--ink);margin:0 0 12px}
+  .rev .who{font-weight:700;font-size:.92rem;color:var(--ink-soft)}
+  @media (max-width:820px){.reviews{grid-template-columns:1fr}}
+  .reviews-note{margin-top:18px;font-size:.94rem;color:var(--ink-soft)}
+
+  /* Contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .big-phone{background:var(--brand);color:#fff;border-radius:var(--radius);padding:32px;margin-bottom:22px}
+  .big-phone small{text-transform:uppercase;letter-spacing:.06em;font-size:.78rem;opacity:.85}
+  .big-phone a{display:block;color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:2rem;margin-top:6px}
+  .cinfo{display:grid;gap:14px;font-size:1rem}
+  .cinfo div{display:flex;gap:.7em;align-items:flex-start}
+  .cinfo .ico{color:var(--brand-deep);font-size:1.15rem;margin-top:2px;display:flex}
+  .form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+  .form label{display:block;font-weight:700;margin:0 0 6px;font-size:.94rem}
+  .form .field{margin-bottom:18px}
+  .form input,.form textarea,.form select{width:100%;font-family:inherit;font-size:1rem;padding:13px 15px;
+    border:2px solid var(--line);border-radius:12px;background:var(--cream);color:var(--ink)}
+  .form input:focus,.form textarea:focus,.form select:focus{border-color:var(--brand);outline:none}
+  .form textarea{min-height:110px;resize:vertical}
+  .form .btn{width:100%}
+  .form .legal{font-size:.8rem;color:var(--ink-soft);margin:14px 0 0}
+
+  /* Footer */
+  footer.site{background:var(--violet-2);color:#D5C4DC;padding:54px 0 28px;font-size:.95rem}
+  footer.site .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;margin-bottom:32px}
+  footer.site .agency{color:#D5C4DC;border-left-color:#74408A}
+  footer.site a{color:#FF7FC0}
+  footer.site .cols{display:flex;gap:48px;flex-wrap:wrap}
+  footer.site h4{font-family:'Montserrat',sans-serif;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin:0 0 12px}
+  footer.site ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+  footer.site .legal-line{border-top:1px solid #74408A;padding-top:20px;color:#B7A2BF;font-size:.8rem;line-height:1.6}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media (max-width:900px){
+    .hero .grid,.contact{grid-template-columns:1fr;gap:34px}
+    .solutions,.gallery{grid-template-columns:1fr}
+    section{padding:58px 0}.hero{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+<a href="#contenu" class="skip">Aller au contenu</a>
+<svg class="sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-douche" viewBox="0 0 24 24"><path d="M12 2v9"/><path d="M6 11a6 6 0 0 1 12 0z"/><path d="M8 14.5v1.5M12 16.5v1.5M16 14.5v1.5M9.8 19v1.5M14.2 19v1.5"/></symbol><symbol id="i-escalier" viewBox="0 0 24 24"><path d="M4.5 21V5"/><path d="m1.6 7.9 2.9-2.9 2.9 2.9"/><path d="M8.5 21.5h4v-4h4v-4h4v-4"/></symbol><symbol id="i-cuisine" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1.5"/><path d="M3 15h18"/><path d="M12 10V6.5a2.2 2.2 0 0 1 4.4 0"/><circle cx="7.5" cy="12.5" r=".9" fill="currentColor" stroke="none"/><circle cx="7.5" cy="18" r=".9" fill="currentColor" stroke="none"/></symbol><symbol id="i-domotique" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10.2V20h12v-9.8"/><path d="M9.6 15.2a3.6 3.6 0 0 1 4.8 0"/><circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/></symbol><symbol id="i-pmr" viewBox="0 0 24 24"><circle cx="12.4" cy="3.8" r="1.9"/><path d="M10.4 6.4V13h5l2.6 5.2"/><circle cx="10.8" cy="16" r="5.2"/></symbol><symbol id="i-piece" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10.2V20h12v-9.8"/><path d="M10 20v-5h4v5"/></symbol><symbol id="i-personne" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.5a7 7 0 0 1 14 0"/></symbol><symbol id="i-coeur" viewBox="0 0 24 24"><path d="M12 20.4S4.8 15.7 4.8 10.6A4 4 0 0 1 12 8a4 4 0 0 1 7.2 2.6c0 5.1-7.2 9.8-7.2 9.8z"/></symbol><symbol id="i-familles" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20.4a6 6 0 0 1 12 0"/><path d="M16.2 5.4a3.2 3.2 0 0 1 0 5.6"/><path d="M17.4 14.4a6 6 0 0 1 3.6 5.5"/></symbol><symbol id="i-bouclier" viewBox="0 0 24 24"><path d="M12 3.2 19 6v5c0 4.6-3 8.1-7 9.9-4-1.8-7-5.3-7-9.9V6z"/><path d="m9 12 2.1 2.1L15.2 10"/></symbol><symbol id="i-lieu" viewBox="0 0 24 24"><path d="M12 21.2s7-5.3 7-11.1A7 7 0 1 0 5 10.1c0 5.8 7 11.1 7 11.1z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="i-etude" viewBox="0 0 24 24"><circle cx="12" cy="4.6" r="1.9"/><path d="M12 6.6v3"/><path d="M12 9.6 6.4 21M12 9.6 17.6 21"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.2"/><path d="m3.6 7 8.4 5.6L20.4 7"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18z"/></symbol><symbol id="i-horloge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.2 2"/></symbol><symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.2 3.2h3l2 4.9-2.4 1.5a12 12 0 0 0 4.9 4.9l1.5-2.4 4.9 2v3a2 2 0 0 1-2.2 2A16.2 16.2 0 0 1 3.9 5.4a2 2 0 0 1 2.3-2.2z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.4 4.6 4.6L19 6.6"/></symbol><symbol id="i-crayon" viewBox="0 0 24 24"><path d="M4 20.2h4L20.2 8 16 3.8 3.8 16z"/><path d="m14.6 5.2 4.2 4.2"/></symbol><symbol id="i-projet" viewBox="0 0 24 24"><path d="M9 3.5h6a1 1 0 0 1 1 1v1H8v-1a1 1 0 0 1 1-1z"/><path d="M8 5.5H6a1.6 1.6 0 0 0-1.6 1.6v12A1.6 1.6 0 0 0 6 20.7h12a1.6 1.6 0 0 0 1.6-1.6v-12A1.6 1.6 0 0 0 18 5.5h-2"/><path d="m8.6 12.6 2 2 4.4-4.4"/></symbol></defs><symbol id="logo-domvie" viewBox="60.5 154.1 539.7 100.7"><path fill-rule="nonzero" fill="var(--lg-dark,#5D5D5D)"  d="M 188.121094 188.011719 L 188.121094 228.855469 C 192.1875 228.855469 196.074219 229.03125 199.941406 228.824219 C 209.71875 228.296875 217.789062 220.304688 218.515625 210.628906 C 219.335938 199.753906 213.167969 190.898438 202.886719 189.007812 C 198.167969 188.140625 193.253906 188.324219 188.121094 188.011719 M 174.941406 176.921875 C 175.46875 176.660156 175.996094 176.164062 176.515625 176.175781 C 186.585938 176.40625 196.835938 175.625 206.6875 177.226562 C 221.589844 179.652344 232.238281 194.382812 231.738281 209.554688 C 231.226562 225.171875 219.949219 238.886719 204.710938 240.621094 C 194.910156 241.734375 184.875 240.84375 174.941406 240.851562 Z M 174.941406 176.921875 "/>
+<path fill-rule="nonzero" fill="var(--lg-dark,#5D5D5D)"  d="M 595.65625 241.5625 C 594.28125 241.800781 592.90625 242.238281 591.53125 242.246094 C 578.226562 242.296875 564.917969 242.191406 551.617188 242.339844 C 548.5 242.375 547.371094 241.324219 547.382812 238.289062 C 547.441406 219.117188 547.433594 199.945312 547.394531 180.777344 C 547.386719 177.964844 548.382812 176.894531 551.398438 176.933594 C 564.460938 177.089844 577.53125 177.070312 590.597656 176.945312 C 593.46875 176.917969 594.324219 177.953125 594.273438 180.667969 C 594.074219 190.777344 595.378906 189.035156 585.796875 189.136719 C 577.617188 189.222656 569.433594 189.152344 560.984375 189.152344 L 560.984375 202.335938 C 567.796875 202.335938 574.644531 202.335938 581.496094 202.335938 C 587.019531 202.339844 587.019531 202.339844 587.019531 207.734375 C 587.019531 208.679688 586.96875 209.628906 587.027344 210.570312 C 587.207031 213.476562 585.832031 214.566406 582.964844 214.523438 C 575.722656 214.421875 568.480469 214.488281 560.980469 214.488281 L 560.980469 230.191406 C 562.789062 230.191406 564.753906 230.191406 566.714844 230.191406 C 575.03125 230.191406 583.347656 230.128906 591.660156 230.257812 C 593 230.277344 594.324219 231.140625 595.65625 231.617188 Z M 595.65625 241.5625 "/>
+<path fill-rule="nonzero" fill="var(--lg-dark,#5D5D5D)"  d="M 333.757812 200.355469 C 333.113281 206.042969 332.445312 211.726562 331.828125 217.414062 C 331.066406 224.464844 330.304688 231.515625 329.632812 238.578125 C 329.4375 240.617188 328.5625 241.582031 326.472656 241.496094 C 324.8125 241.425781 323.148438 241.484375 321.484375 241.484375 C 316.59375 241.476562 316.417969 241.382812 316.945312 236.472656 C 318.984375 217.550781 321.148438 198.640625 323.117188 179.710938 C 323.425781 176.738281 324.75 176.027344 327.464844 176.011719 C 338.085938 175.941406 338.09375 175.875 341.660156 185.804688 C 345.6875 197.003906 349.695312 208.214844 354.0625 220.394531 C 355.878906 215.535156 357.382812 211.59375 358.824219 207.628906 C 362.253906 198.195312 365.71875 188.769531 369.015625 179.292969 C 369.84375 176.917969 371.019531 175.8125 373.625 176.007812 C 376.34375 176.214844 379.089844 176.109375 381.820312 176.039062 C 383.859375 175.984375 384.964844 176.917969 385.171875 178.875 C 386.238281 188.980469 387.28125 199.085938 388.359375 209.480469 L 375.699219 209.480469 C 375.300781 206.3125 374.910156 203.175781 374.382812 198.96875 C 373.53125 201.140625 372.988281 202.4375 372.507812 203.753906 C 368.503906 214.734375 364.429688 225.6875 360.582031 236.71875 C 359.671875 239.324219 358.296875 240.1875 355.636719 240.105469 C 348.265625 239.875 349.34375 241.097656 346.710938 233.824219 C 343.132812 223.953125 339.5625 214.078125 335.972656 204.210938 C 335.496094 202.902344 334.925781 201.625 334.398438 200.335938 C 334.183594 200.34375 333.972656 200.351562 333.757812 200.355469 "/>
+<path fill-rule="nonzero" fill="var(--lg-light,#A3A2A2)"  d="M 420.058594 213.78125 C 420.386719 206.777344 417.09375 202.914062 411.339844 203.140625 C 406.496094 203.332031 402.894531 208.195312 403.601562 213.929688 C 407.933594 213.929688 412.304688 213.9375 416.679688 213.921875 C 417.726562 213.917969 418.773438 213.835938 420.058594 213.78125 M 441.4375 204.386719 C 437.1875 203.242188 431.75 205.742188 431.707031 199.699219 C 431.664062 193.414062 437.4375 196.222656 441.09375 194.9375 C 441.09375 192.808594 440.910156 190.578125 441.152344 188.394531 C 441.339844 186.691406 441.550781 184.3125 442.664062 183.546875 C 444.304688 182.421875 446.824219 181.964844 448.828125 182.238281 C 449.722656 182.359375 450.714844 184.894531 450.898438 186.421875 C 451.230469 189.203125 450.996094 192.046875 450.996094 195.386719 C 455.625 195.386719 459.96875 195.386719 464.316406 195.386719 C 471.121094 195.386719 472.4375 196.566406 473.511719 203.882812 L 450.996094 203.882812 L 450.996094 211.492188 C 450.996094 217.527344 451.1875 223.570312 450.917969 229.59375 C 450.765625 233.011719 452.039062 234.109375 455.222656 233.671875 C 455.921875 233.574219 456.660156 233.746094 457.355469 233.640625 C 460.472656 233.167969 461.585938 234.667969 461.695312 237.589844 C 461.855469 242 461.863281 242.085938 457.371094 242.308594 C 456.542969 242.347656 455.707031 242.371094 454.886719 242.476562 C 446.378906 243.585938 443.160156 241.554688 440.660156 233.164062 C 434.726562 238.285156 427.933594 241.515625 420.304688 242.5 C 415.894531 243.074219 411.273438 243.457031 406.929688 242.78125 C 399.917969 241.691406 395.914062 236.71875 393.886719 230.167969 C 393.15625 227.808594 392.746094 225.351562 392.085938 222.476562 C 389.386719 222.476562 386.5625 222.308594 383.765625 222.511719 C 378.535156 222.886719 376.207031 221.898438 376.476562 213.929688 C 380.703125 213.929688 384.957031 213.789062 389.195312 213.980469 C 391.65625 214.089844 392.539062 213.269531 393.296875 210.867188 C 394.40625 207.335938 395.875 203.679688 398.109375 200.78125 C 403.074219 194.332031 410.050781 193.058594 417.617188 195.183594 C 425.085938 197.28125 428.925781 202.835938 430.058594 210.101562 C 430.660156 213.972656 430.164062 218.015625 430.164062 222.433594 L 403.410156 222.433594 C 402.917969 229.871094 406.945312 234.191406 413.390625 233.941406 C 425.964844 233.457031 436.488281 227.394531 440.039062 216.863281 C 441.34375 212.996094 441.015625 208.582031 441.4375 204.386719 "/>
+<path fill-rule="nonzero" fill="var(--lg-dark,#5D5D5D)"  d="M 275.019531 229.714844 C 286.519531 229.34375 295.558594 219.835938 295.296875 208.375 C 295.027344 196.65625 285.410156 187.257812 274.011719 187.582031 C 262.433594 187.910156 253.484375 197.585938 253.851562 209.378906 C 254.21875 221.089844 263.574219 230.082031 275.019531 229.714844 M 274.308594 242.277344 C 255.535156 242.269531 240.757812 227.421875 240.789062 208.609375 C 240.820312 190.078125 256.046875 174.960938 274.605469 175.035156 C 293.386719 175.109375 308.347656 190.230469 308.292969 209.082031 C 308.234375 227.699219 293.304688 242.285156 274.308594 242.277344 "/>
+<path fill-rule="nonzero" fill="var(--lg-dark,#5D5D5D)"  d="M 462.789062 208.175781 C 466.726562 208.175781 470.386719 208.050781 474.027344 208.265625 C 474.859375 208.316406 475.992188 209.371094 476.355469 210.230469 C 478.050781 214.21875 479.527344 218.300781 481.390625 223.160156 C 482.148438 221.296875 482.640625 220.164062 483.074219 219.003906 C 487.863281 206.183594 492.695312 193.378906 497.367188 180.515625 C 498.324219 177.882812 499.667969 176.636719 502.554688 176.957031 C 504.550781 177.179688 506.589844 176.984375 508.609375 177.003906 C 512.144531 177.039062 512.609375 177.664062 511.289062 181.007812 C 507.253906 191.210938 503.164062 201.390625 499.082031 211.570312 C 495.4375 220.664062 491.566406 229.671875 488.210938 238.867188 C 486.535156 243.460938 483.050781 241.898438 479.984375 242.304688 C 477.074219 242.691406 475.75 241.3125 474.757812 238.761719 C 471.117188 229.410156 467.300781 220.125 463.566406 210.808594 C 463.273438 210.070312 463.109375 209.277344 462.789062 208.175781 "/>
+<path fill-rule="nonzero" fill="var(--lg-dark,#5D5D5D)"  d="M 520.628906 209.390625 C 520.628906 199.925781 520.734375 190.457031 520.566406 180.992188 C 520.511719 177.839844 521.628906 176.878906 524.699219 176.949219 C 534.425781 177.179688 533.53125 175.765625 533.535156 185.625 C 533.546875 203.140625 533.457031 220.652344 533.609375 238.164062 C 533.640625 241.488281 532.628906 242.417969 529.347656 242.351562 C 520.628906 242.164062 520.628906 242.304688 520.628906 233.527344 C 520.628906 225.480469 520.628906 217.4375 520.628906 209.390625 "/>
+<path fill-rule="nonzero" fill="var(--lg-pink,#E6007E)"  d="M 155.878906 204.839844 C 155.878906 229.78125 135.664062 250 110.722656 250 C 85.78125 250 65.5625 229.78125 65.5625 204.839844 C 65.5625 179.902344 85.78125 159.683594 110.722656 159.683594 C 135.664062 159.683594 155.878906 179.902344 155.878906 204.839844 "/>
+<path fill-rule="nonzero" fill="var(--lg-white,#FFFFFF)"  d="M 119.734375 215.050781 C 122.851562 208.5625 125.71875 202.410156 128.789062 196.359375 C 129.355469 195.242188 130.617188 194.039062 131.765625 193.769531 C 133.132812 193.445312 134.730469 194.089844 136.226562 194.3125 C 135.917969 195.625 135.828125 197.042969 135.257812 198.234375 C 131.28125 206.511719 127.277344 214.773438 123.09375 222.945312 C 122.429688 224.246094 120.910156 225.738281 119.628906 225.902344 C 118.6875 226.019531 117.136719 224.292969 116.472656 223.058594 C 113.925781 218.335938 111.4375 213.566406 109.289062 208.65625 C 106.707031 202.761719 102.929688 199.25 96.011719 200.382812 C 94.527344 200.625 92.964844 200.417969 91.222656 200.417969 L 91.222656 219.734375 C 96.566406 219.414062 102.039062 220.953125 106.898438 216.515625 C 107.945312 218.511719 108.90625 220.34375 110.199219 222.8125 C 107.410156 223.9375 104.980469 225.570312 102.425781 225.8125 C 97.203125 226.304688 91.90625 226.171875 86.652344 225.976562 C 85.792969 225.945312 84.292969 224.289062 84.277344 223.359375 C 84.097656 214.410156 84.097656 205.457031 84.285156 196.511719 C 84.300781 195.640625 85.863281 194.101562 86.757812 194.0625 C 91.902344 193.839844 97.082031 193.675781 102.203125 194.078125 C 107.757812 194.511719 111.0625 198.433594 113.570312 202.964844 C 115.6875 206.792969 117.558594 210.757812 119.734375 215.050781 "/>
+<path fill-rule="nonzero" fill="var(--lg-white,#FFFFFF)"  d="M 131.902344 191.640625 C 129.875 190.402344 127.621094 189.207031 125.566406 187.738281 C 119.851562 183.65625 119.855469 183.574219 114.347656 187.800781 C 111.765625 189.78125 109.257812 191.839844 105.691406 191.074219 C 104.851562 190.894531 104.089844 190.367188 103.296875 189.996094 C 103.6875 189.316406 103.925781 188.445312 104.5 187.988281 C 108.785156 184.570312 113.140625 181.238281 117.464844 177.867188 C 119.351562 176.394531 120.980469 177.0625 122.605469 178.371094 C 126.320312 181.359375 130.109375 184.257812 133.757812 187.324219 C 134.628906 188.054688 135.078125 189.292969 135.71875 190.296875 C 134.65625 190.671875 133.59375 191.046875 131.902344 191.640625 "/>
+<path fill-rule="nonzero" fill="var(--lg-white,#FFFFFF)"  d="M 120.527344 191.710938 C 121.558594 193.175781 123.382812 194.640625 123.375 196.101562 C 123.371094 197.359375 121.472656 199.308594 120.0625 199.699219 C 117.800781 200.320312 115.910156 198.578125 116.15625 196.316406 C 116.328125 194.714844 117.953125 193.269531 118.933594 191.753906 Z M 120.527344 191.710938 "/></symbol></defs></svg>
+
+<header class="site">
+  <div class="wrap bar">
+    <a href="#" class="logo" aria-label="Dom&amp;Vie {{ site.agence }}, accueil">
+      <svg class="mark-img" role="img" aria-label="Dom&amp;Vie"><use href="#logo-domvie"/></svg>
+      <span class="agency">{{ site.agence }}</span>
+    </a>
+    <nav class="head-cta" aria-label="Actions principales">
+      <a class="phone-head" href="tel:{{ site.telephone_lien }}"><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg></span><span class="txt">{{ site.telephone }}</span></a>
+      <a class="btn btn-ghost" href="#contact">Votre projet</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <section class="hero" aria-labelledby="h-title">
+    <div class="wrap grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span> {{ site.hero_surtitre }}</span>
+        <h1 id="h-title">{{ site.hero_titre }} <em>{{ site.hero_titre_accent }}</em>.</h1>
+        <p class="lead">{{ site.hero_texte }}</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact"><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-crayon"/></svg></span> Vous avez un projet ?</a>
+          <a class="btn btn-ghost" href="tel:{{ site.telephone_lien }}"><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg></span> Nous appeler</a>
+        </div>
+        <div class="reassure">
+          {%- for gage in site.hero_gages %}
+          <span><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span> {{ gage }}</span>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="ba">
+          <figure>
+            <span class="tag">Avant</span>
+            {%- if site.hero_image_avant %}<img src="{{ site.hero_image_avant }}" alt="Salle de bain avant travaux">
+            {%- else %}<span class="ph">Photo « avant »</span>{% endif %}
+          </figure>
+          <figure>
+            <span class="tag" style="background:var(--brand-deep)">Après</span>
+            {%- if site.hero_image_apres %}<img src="{{ site.hero_image_apres }}" alt="Douche sécurisée après travaux">
+            {%- else %}<span class="ph">Photo « après »</span>{% endif %}
+          </figure>
+        </div>
+        <div class="cap">{{ site.hero_legende }}</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="project" aria-labelledby="proj-title">
+    <div class="wrap">
+      <h2 id="proj-title">{{ site.projet_titre }}</h2>
+      <p class="sub">{{ site.projet_sous_titre }}</p>
+      <div class="choices">
+        {%- for c in site.projet_choix %}
+        <a class="choice" href="#contact"><span class="pic" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-{{ c.icone }}"/></svg></span>{{ c.libelle }}</a>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="aid" aria-labelledby="aid-title">
+    <div class="wrap">
+      <div class="left">
+        <div class="pa"><small>MaPrimeAdapt'</small><b>{{ site.aide_montant }}</b></div>
+        <div class="copy">
+          <b id="aid-title">{{ site.aide_titre }}</b>
+          <p>{{ site.aide_texte }}</p>
+        </div>
+      </div>
+      <a class="btn" href="#contact">Simuler mon aide</a>
+    </div>
+  </div>
+
+  <section aria-labelledby="sol-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Nos solutions</div>
+        <h2 id="sol-title">{{ site.solutions_titre }}</h2>
+        <p>{{ site.solutions_texte }}</p>
+      </div>
+      <div class="solutions">
+        {%- for s in site.solutions %}
+        <article class="sol reveal">
+          <div class="ic" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-{{ s.icone }}"/></svg></div>
+          <h3>{{ s.titre }}</h3>
+          <p>{{ s.texte }}</p>
+          <ul>{% for pt in s.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sand)" aria-labelledby="real-title">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Nos réalisations</div>
+        <h2 id="real-title">{{ site.realisations_titre }}</h2>
+        <p>{{ site.realisations_texte }}</p>
+      </div>
+      <div class="gallery">
+        {%- for r in site.realisations %}
+        <article class="real reveal">
+          <div class="img">
+            <span class="tag">Avant / Après</span>
+            <span class="days">{{ r.duree }}</span>
+            {%- if r.image %}<img src="{{ r.image }}" alt="{{ r.titre }}, à {{ r.commune }}">
+            {%- else %}<span class="ph">Photo à insérer</span>{% endif %}
+          </div>
+          <div class="body"><span class="loc">{{ r.commune }}</span><h3>{{ r.titre }}</h3></div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="step-title">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="kicker">Votre projet</div>
+        <h2 id="step-title">{{ site.etapes_titre }}</h2>
+      </div>
+      <div class="steps">
+        {%- for e in site.etapes %}
+        <article class="step reveal"><div class="n" aria-hidden="true"></div><h3>{{ e.titre }}</h3><p>{{ e.texte }}</p></article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="atouts" aria-labelledby="at-title">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <span class="big">{{ site.atouts_gros_mot }}</span>
+        <h2 id="at-title">{{ site.atouts_titre }}</h2>
+      </div>
+      <div class="grid">
+        {%- for a in site.atouts %}
+        <div class="atout reveal"><span class="ic" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-{{ a.icone }}"/></svg></span><div><b>{{ a.titre }}</b><span>{{ a.texte }}</span></div></div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="zone-title">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:22px">
+        <div class="kicker">Zone d'intervention</div>
+        <h2 id="zone-title">{{ site.zone_titre }}</h2>
+        <p>{{ site.zone_texte }}</p>
+      </div>
+      <ul class="towns reveal" aria-label="Communes desservies">
+        {%- for c in site.communes %}<li>{{ c }}</li>{% endfor %}
+        <li class="more">… et les communes alentour</li>
+      </ul>
+      <p class="zone-note">{{ site.zone_note }}</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="rev-title">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="kicker">Avis clients</div>
+        <h2 id="rev-title">{{ site.avis_titre }}</h2>
+      </div>
+      <div class="reviews">
+        {%- for a in site.avis %}
+        <article class="rev reveal">
+          <div class="stars" aria-label="{{ a.note }} sur 5">{% for i in range(0, a.note) %}★{% endfor %}</div>
+          <p>« {{ a.texte }} »</p>
+          <div class="who">— {{ a.auteur }}, {{ a.commune }}</div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--sand)" aria-labelledby="contact-title">
+    <div class="wrap contact">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:22px">
+          <div class="kicker">Contact</div>
+          <h2 id="contact-title">{{ site.contact_titre }}</h2>
+          <p>{{ site.contact_texte }}</p>
+        </div>
+        <div class="big-phone">
+          <small>Appelez directement</small>
+          <a href="tel:{{ site.telephone_lien }}">{{ site.telephone }}</a>
+        </div>
+        <div class="cinfo">
+          <div><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></span><span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span></div>
+          <div><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></span><span>{{ site.site_web }}</span></div>
+          <div><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-lieu"/></svg></span><span>{{ site.adresse }}</span></div>
+          <div><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-horloge"/></svg></span><span>{{ site.horaires }}</span></div>
+        </div>
+      </div>
+
+      <div class="form reveal">
+        <form name="devis" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="devis">
+          <p hidden><label>Ne pas remplir : <input name="bot-field"></label></p>
+          <div class="field"><label for="nom">Votre nom</label><input id="nom" name="nom" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="projet">Votre projet</label>
+            <select id="projet" name="projet">
+              {%- for c in site.projet_choix %}<option>{{ c.libelle }}</option>{% endfor %}
+              <option>Autre / je ne sais pas encore</option>
+            </select>
+          </div>
+          <div class="field"><label for="msg">Précisions (facultatif)</label><textarea id="msg" name="msg" placeholder="Ex. : baignoire à remplacer par une douche sécurisée"></textarea></div>
+          <button class="btn btn-primary" type="submit"><span class="ico" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-crayon"/></svg></span> Envoyer ma demande</button>
+          <p class="legal">{{ site.formulaire_mention }}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <a href="#" class="logo" aria-label="Dom&amp;Vie {{ site.agence }}">
+        <svg class="mark-img" role="img" aria-label="Dom&amp;Vie"><use href="#logo-domvie"/></svg>
+        <span class="agency">{{ site.agence }}</span>
+      </a>
+      <div class="cols">
+        <div><h4>Solutions</h4><ul>{% for s in site.solutions %}<li>{{ s.titre }}</li>{% endfor %}</ul></div>
+        <div><h4>Aides</h4><ul><li>MaPrimeAdapt'</li><li>Autres financements</li><li>Accompagnement dossier</li></ul></div>
+        <div><h4>Contact</h4><ul><li><a href="tel:{{ site.telephone_lien }}">{{ site.telephone }}</a></li><li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li><li>{{ site.site_web }}</li><li>{{ site.adresse }}</li></ul></div>
+      </div>
+    </div>
+    <p class="legal-line">
+      {{ site.site_web }} — Dom&amp;Vie {{ site.agence }} · {{ site.gerant }}, micro-entrepreneur · SIREN {{ site.siren }} · Membre du réseau Dom&amp;Vie.<br>
+      <a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Politique de confidentialité</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if(reduce || !('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
