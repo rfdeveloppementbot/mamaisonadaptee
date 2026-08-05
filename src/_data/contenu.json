@@ -1,118 +1,219 @@
 {
-  "titre_page": "Ma Maison Adaptée — Aménagement PMR & adaptation du logement, de Lyon à Saint-Étienne",
-  "description_page": "Ma Maison Adaptée : adaptation du logement pour seniors et personnes à mobilité réduite, de Lyon à Saint-Étienne (basé à Taluyers, 69440). Douche sécurisée, monte-escalier, cuisine adaptée, domotique. Devis gratuit. MaPrimeAdapt'.",
-
-  "agence": "Lyon Sud-Ouest",
-  "telephone": "04 00 00 00 00",
-  "telephone_lien": "+33400000000",
-  "email": "contact@mamaisonadaptee.fr",
-  "site_web": "mamaisonadaptee.fr",
-  "adresse": "Taluyers (69440) — de Lyon à Saint-Étienne",
-  "horaires": "Du lundi au vendredi, 8h – 18h",
-  "gerant": "Grégory Maindret",
+  "projet_sous_titre": "Choisissez ce qui vous ressemble : vous êtes rappelé sous 48 h pour en parler.",
+  "telephone_lien": "06 38 04 73 40 / 06 56 69 38 95",
+  "formulaire_mention": "Vos données ne servent qu'à vous recontacter. Aucune transmission à des tiers.",
+  "aide_texte": "Le dispositif MaPrimeAdapt' aide les seniors et personnes en perte d'autonomie. Nous vous accompagnons dans le montage du dossier.",
+  "telephone": "06 38 04 73 40 / 06 56 69 38 95",
+  "zone_note": "Votre commune n'est pas listée ? Contactez-nous, nous verrons ensemble.",
   "siren": "à compléter",
-
+  "zone_texte": "Le déplacement est gratuit pour évaluer votre projet, de Lyon à Saint-Étienne et dans les communes alentour.",
+  "realisations": [
+    {
+      "commune": "Mornant",
+      "duree": "3 jours",
+      "titre": "Une douche de plain-pied sécurisée et accessible",
+      "image": ""
+    },
+    {
+      "commune": "Brignais",
+      "duree": "2 jours",
+      "titre": "Un monte-escalier installé pour retrouver l'étage",
+      "image": ""
+    },
+    {
+      "commune": "Chaponost",
+      "duree": "5 jours",
+      "titre": "Une salle de bain PMR moderne et autonome",
+      "image": ""
+    }
+  ],
+  "projet_choix": [
+    {
+      "icone": "pmr",
+      "libelle": "Adapter ma douche pour mon handicap"
+    },
+    {
+      "icone": "douche",
+      "libelle": "Rénover ma salle de bain"
+    },
+    {
+      "icone": "cuisine",
+      "libelle": "Adapter ma cuisine"
+    },
+    {
+      "icone": "escalier",
+      "libelle": "Installer un monte-escalier"
+    },
+    {
+      "icone": "piece",
+      "libelle": "Adapter une pièce pour une PMR"
+    }
+  ],
   "hero_surtitre": "Aménagement PMR · Seniors · Maintien à domicile",
+  "hero_image_apres": "",
+  "hero_image_avant": "",
+  "atouts_gros_mot": "Taluyers",
+  "aide_montant": "15 400 €*",
+  "atouts_titre": "Une entreprise de votre secteur, pas un numéro dans un centre d'appel",
+  "etapes": [
+    {
+      "titre": "Prenons contact",
+      "texte": "Un déplacement à votre domicile permet d'écouter vos besoins, prendre les métrés et les photos."
+    },
+    {
+      "titre": "Concevons votre projet",
+      "texte": "Offre détaillée, solutions adaptées, et accompagnement complet sur les aides financières."
+    },
+    {
+      "titre": "Préparation du chantier",
+      "texte": "Visite technique et organisation, avec une date de démarrage planifiée."
+    },
+    {
+      "titre": "Le projet prend forme",
+      "texte": "Protection du logement, installation soignée, contrôle de conformité et nettoyage."
+    },
+    {
+      "titre": "Profitez en sécurité",
+      "texte": "Réception de l'installation, garantie décennale, et un quotidien retrouvé."
+    }
+  ],
+  "solutions_titre": "Des aménagements pensés pour la sécurité au quotidien",
+  "horaires": "Du lundi au vendredi, 8h – 18h",
   "hero_titre": "Spécialiste de l'adaptation du logement,",
-  "hero_titre_accent": "de Lyon à Saint-Étienne",
+  "adresse": "Taluyers (69440) — de Lyon à Saint-Étienne",
+  "agence": "Lyon Sud-Ouest",
+  "description_page": "Ma Maison Adaptée : adaptation du logement pour seniors et personnes à mobilité réduite, de Lyon à Saint-Étienne (basé à Taluyers, 69440). Douche sécurisée, monte-escalier, cuisine adaptée, domotique. Devis gratuit. MaPrimeAdapt'.",
+  "avis_titre": "Ce qu'en disent nos clients du secteur",
   "hero_texte": "Salle de bain, escaliers, cuisine, domotique : nous adaptons votre logement pour vous permettre de rester chez vous, en sécurité et en autonomie.",
+  "communes": [
+    "Lyon",
+    "Saint-Genis-Laval",
+    "Oullins",
+    "Brignais",
+    "Chaponost",
+    "Vourles",
+    "Millery",
+    "Taluyers",
+    "Orliénas",
+    "Soucieu-en-Jarrest",
+    "Mornant",
+    "Givors",
+    "Rive-de-Gier",
+    "Saint-Chamond",
+    "Saint-Étienne"
+  ],
+  "gerant": "Grégory Maindret",
+  "contact_titre": "Parlons de votre projet",
+  "solutions_texte": "Chaque chantier est réalisé sur mesure, chez vous, selon la mobilité et les habitudes de la personne.",
+  "hero_legende": "Transformation baignoire → douche sécurisée · Chantier réalisé sur le secteur",
   "hero_gages": [
     "Devis & visite gratuits",
     "De Lyon à Saint-Étienne",
     "Garantie décennale"
   ],
-  "hero_image_avant": "",
-  "hero_image_apres": "",
-  "hero_legende": "Transformation baignoire → douche sécurisée · Chantier réalisé sur le secteur",
-
-  "projet_titre": "Décrivez-nous votre projet",
-  "projet_sous_titre": "Choisissez ce qui vous ressemble : vous êtes rappelé sous 48 h pour en parler.",
-  "projet_choix": [
-    { "icone": "pmr", "libelle": "Adapter ma douche pour mon handicap" },
-    { "icone": "douche", "libelle": "Rénover ma salle de bain" },
-    { "icone": "cuisine", "libelle": "Adapter ma cuisine" },
-    { "icone": "escalier", "libelle": "Installer un monte-escalier" },
-    { "icone": "piece", "libelle": "Adapter une pièce pour une PMR" }
+  "atouts": [
+    {
+      "icone": "personne",
+      "titre": "Toujours le même interlocuteur",
+      "texte": "Grégory Maindret vous suit du premier appel à la mise en service."
+    },
+    {
+      "icone": "lieu",
+      "titre": "Sur l'axe Lyon – Saint-Étienne",
+      "texte": "Basée à Taluyers, l'agence intervient de Lyon à Saint-Étienne et alentours."
+    },
+    {
+      "icone": "etude",
+      "titre": "Compétences multi-métiers",
+      "texte": "Carrelage, plomberie, électricité : les travaux sont réalisés en interne."
+    },
+    {
+      "icone": "coeur",
+      "titre": "Réseau médico-social local",
+      "texte": "En lien avec les professionnels de santé du secteur."
+    },
+    {
+      "icone": "bouclier",
+      "titre": "Garantie décennale",
+      "texte": "Des installations conformes, sûres et durables."
+    },
+    {
+      "icone": "familles",
+      "titre": "Le savoir-faire Dom&Vie",
+      "texte": "Solutions éprouvées, adossées à un réseau spécialisé."
+    }
   ],
-
-  "aide_montant": "15 400 €*",
-  "aide_titre": "Jusqu'à 15 400 € d'aides pour adapter votre logement",
-  "aide_texte": "Le dispositif MaPrimeAdapt' aide les seniors et personnes en perte d'autonomie. Nous vous accompagnons dans le montage du dossier.",
-
-  "solutions_titre": "Des aménagements pensés pour la sécurité au quotidien",
-  "solutions_texte": "Chaque chantier est réalisé sur mesure, chez vous, selon la mobilité et les habitudes de la personne.",
+  "realisations_titre": "Des chantiers concrets, près de chez vous",
+  "contact_texte": "Demandez votre devis gratuit. Vous êtes rappelé sous 48 h.",
   "solutions": [
     {
       "icone": "douche",
       "titre": "Salle de bain",
       "texte": "La pièce la plus à risque, sécurisée durablement.",
-      "points": ["Douche PMR de plain-pied", "Douche senior antidérapante", "Barres d'appui, siège, WC rehaussé"]
+      "points": [
+        "Douche PMR de plain-pied",
+        "Douche senior antidérapante",
+        "Barres d'appui, siège, WC rehaussé"
+      ]
     },
     {
       "icone": "escalier",
       "titre": "Élévateur & escaliers",
       "texte": "Retrouver l'accès à tout le logement, sans effort.",
-      "points": ["Monte-escalier droit ou tournant", "Plateforme élévatrice", "Ascenseur de maison"]
+      "points": [
+        "Monte-escalier droit ou tournant",
+        "Plateforme élévatrice",
+        "Ascenseur de maison"
+      ]
     },
     {
       "icone": "cuisine",
       "titre": "Cuisine adaptée",
       "texte": "Cuisiner en autonomie, en toute sécurité.",
-      "points": ["Plans de travail à bonne hauteur", "Rangements accessibles", "Équipements faciles à manipuler"]
+      "points": [
+        "Plans de travail à bonne hauteur",
+        "Rangements accessibles",
+        "Équipements faciles à manipuler"
+      ]
     },
     {
       "icone": "domotique",
       "titre": "Domotique",
       "texte": "La maison veille sur vous, discrètement.",
-      "points": ["Détection de présence et de chute", "Volets et portes motorisés", "Chemins lumineux automatiques"]
+      "points": [
+        "Détection de présence et de chute",
+        "Volets et portes motorisés",
+        "Chemins lumineux automatiques"
+      ]
     }
   ],
-
-  "realisations_titre": "Des chantiers concrets, près de chez vous",
-  "realisations_texte": "Des chantiers menés chez vos voisins, de Brignais à Rive-de-Gier.",
-  "realisations": [
-    { "commune": "Mornant", "duree": "3 jours", "titre": "Une douche de plain-pied sécurisée et accessible", "image": "" },
-    { "commune": "Brignais", "duree": "2 jours", "titre": "Un monte-escalier installé pour retrouver l'étage", "image": "" },
-    { "commune": "Chaponost", "duree": "5 jours", "titre": "Une salle de bain PMR moderne et autonome", "image": "" }
-  ],
-
-  "etapes_titre": "En 5 étapes, du premier contact à la mise en service",
-  "etapes": [
-    { "titre": "Prenons contact", "texte": "Un déplacement à votre domicile permet d'écouter vos besoins, prendre les métrés et les photos." },
-    { "titre": "Concevons votre projet", "texte": "Offre détaillée, solutions adaptées, et accompagnement complet sur les aides financières." },
-    { "titre": "Préparation du chantier", "texte": "Visite technique et organisation, avec une date de démarrage planifiée." },
-    { "titre": "Le projet prend forme", "texte": "Protection du logement, installation soignée, contrôle de conformité et nettoyage." },
-    { "titre": "Profitez en sécurité", "texte": "Réception de l'installation, garantie décennale, et un quotidien retrouvé." }
-  ],
-
-  "atouts_gros_mot": "Taluyers",
-  "atouts_titre": "Une entreprise de votre secteur, pas un numéro dans un centre d'appel",
-  "atouts": [
-    { "icone": "personne", "titre": "Toujours le même interlocuteur", "texte": "Grégory Maindret vous suit du premier appel à la mise en service." },
-    { "icone": "lieu", "titre": "Sur l'axe Lyon – Saint-Étienne", "texte": "Basée à Taluyers, l'agence intervient de Lyon à Saint-Étienne et alentours." },
-    { "icone": "etude", "titre": "Compétences multi-métiers", "texte": "Carrelage, plomberie, électricité : les travaux sont réalisés en interne." },
-    { "icone": "coeur", "titre": "Réseau médico-social local", "texte": "En lien avec les professionnels de santé du secteur." },
-    { "icone": "bouclier", "titre": "Garantie décennale", "texte": "Des installations conformes, sûres et durables." },
-    { "icone": "familles", "titre": "Le savoir-faire Dom&Vie", "texte": "Solutions éprouvées, adossées à un réseau spécialisé." }
-  ],
-
-  "zone_titre": "De Lyon à Saint-Étienne, et tout autour",
-  "zone_texte": "Le déplacement est gratuit pour évaluer votre projet, de Lyon à Saint-Étienne et dans les communes alentour.",
-  "communes": [
-    "Lyon", "Saint-Genis-Laval", "Oullins", "Brignais", "Chaponost",
-    "Vourles", "Millery", "Taluyers", "Orliénas", "Soucieu-en-Jarrest",
-    "Mornant", "Givors", "Rive-de-Gier", "Saint-Chamond", "Saint-Étienne"
-  ],
-  "zone_note": "Votre commune n'est pas listée ? Contactez-nous, nous verrons ensemble.",
-
-  "avis_titre": "Ce qu'en disent nos clients du secteur",
+  "aide_titre": "Jusqu'à 15 400 € d'aides pour adapter votre logement",
+  "site_web": "mamaisonadaptee.fr",
+  "hero_titre_accent": "de Lyon à Saint-Étienne",
+  "titre_page": "Ma Maison Adaptée — Aménagement PMR & adaptation du logement, de Lyon à Saint-Étienne",
+  "email": "contact@mamaisonadaptee.fr",
   "avis": [
-    { "note": 5, "texte": "Avis client à insérer depuis votre fiche Google.", "auteur": "Prénom N.", "commune": "Commune" },
-    { "note": 5, "texte": "Avis client à insérer depuis votre fiche Google.", "auteur": "Prénom N.", "commune": "Commune" },
-    { "note": 5, "texte": "Avis client à insérer depuis votre fiche Google.", "auteur": "Prénom N.", "commune": "Commune" }
+    {
+      "note": 5,
+      "texte": "Avis client à insérer depuis votre fiche Google.",
+      "auteur": "Prénom N.",
+      "commune": "Commune"
+    },
+    {
+      "note": 5,
+      "texte": "Avis client à insérer depuis votre fiche Google.",
+      "auteur": "Prénom N.",
+      "commune": "Commune"
+    },
+    {
+      "note": 5,
+      "texte": "Avis client à insérer depuis votre fiche Google.",
+      "auteur": "Prénom N.",
+      "commune": "Commune"
+    }
   ],
-
-  "contact_titre": "Parlons de votre projet",
-  "contact_texte": "Demandez votre devis gratuit. Vous êtes rappelé sous 48 h.",
-  "formulaire_mention": "Vos données ne servent qu'à vous recontacter. Aucune transmission à des tiers."
+  "realisations_texte": "Des chantiers menés chez vos voisins, de Brignais à Rive-de-Gier.",
+  "zone_titre": "De Lyon à Saint-Étienne, et tout autour",
+  "projet_titre": "Décrivez-nous votre projet",
+  "etapes_titre": "En 5 étapes, du premier contact à la mise en service"
 }
