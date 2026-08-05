@@ -4,7 +4,7 @@
 # ============================================================
 backend:
   name: github
-  repo: VOTRE-COMPTE/VOTRE-DEPOT
+  repo: rfdeveloppementbot/mamaisonadaptee
   branch: main
 
 # Solution de repli, si le fournisseur OAuth de Netlify n'est pas disponible :
