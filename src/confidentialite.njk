@@ -1,5 +1,4 @@
 ---
-layout: false
 permalink: /confidentialite/index.html
 ---
 <!DOCTYPE html>
@@ -7,7 +6,7 @@ permalink: /confidentialite/index.html
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Politique de confidentialité — {{ site.site_web }}</title>
+<title>Politique de confidentialité — {{ contenu.site_web }}</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
  body{font-family:'Montserrat',sans-serif;max-width:760px;margin:0 auto;padding:48px 24px;
@@ -21,8 +20,8 @@ permalink: /confidentialite/index.html
 <h1>Politique de confidentialité</h1>
 
 <h2>Responsable du traitement</h2>
-<p>{{ site.gerant }} — Dom&amp;Vie {{ site.agence }}, {{ site.adresse }}.<br>
-Contact : <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+<p>{{ contenu.gerant }} — Dom&amp;Vie {{ contenu.agence }}, {{ contenu.adresse }}.<br>
+Contact : <a href="mailto:{{ contenu.email }}">{{ contenu.email }}</a></p>
 
 <h2>Données collectées</h2>
 <p>Le formulaire de contact recueille : votre nom, votre téléphone, la nature de
@@ -44,7 +43,7 @@ ni vendues, ni cédées à des tiers. Elles transitent par l'hébergeur Netlify,
 <h2>Vos droits</h2>
 <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation
 et d'opposition sur vos données. Pour l'exercer, écrivez à
-<a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+<a href="mailto:{{ contenu.email }}">{{ contenu.email }}</a>.
 Vous pouvez également introduire une réclamation auprès de la CNIL
 (<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
 
