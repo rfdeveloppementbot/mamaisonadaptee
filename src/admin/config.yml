@@ -11,7 +11,7 @@ backend:
 # creez un compte sur decapbridge.com et utilisez cette configuration a la place.
 # backend:
 #   name: git-gateway
-#   repo: VOTRE-COMPTE/VOTRE-DEPOT
+#   repo: rfdeveloppementbot/mamaisonadaptee
 #   branch: main
 #   identity_url: https://auth.decapbridge.com/sites/VOTRE-ID-DECAPBRIDGE
 #   gateway_url: https://gateway.decapbridge.com
