@@ -1,5 +1,5 @@
+
 ---
-layout: false
 permalink: /mentions-legales/index.html
 ---
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ permalink: /mentions-legales/index.html
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentions légales — {{ site.site_web }}</title>
+<title>Mentions légales — {{ contenu.site_web }}</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
  body{font-family:'Montserrat',sans-serif;max-width:760px;margin:0 auto;padding:48px 24px;
@@ -21,13 +21,13 @@ permalink: /mentions-legales/index.html
 <h1>Mentions légales</h1>
 
 <h2>Éditeur du site</h2>
-<p>{{ site.gerant }}, entrepreneur individuel (micro-entrepreneur)<br>
-Enseigne : Dom&amp;Vie {{ site.agence }}<br>
-{{ site.adresse }}<br>
-SIREN : {{ site.siren }}<br>
-Téléphone : {{ site.telephone }}<br>
-E-mail : <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-<p>Directeur de la publication : {{ site.gerant }}.</p>
+<p>{{ contenu.gerant }}, entrepreneur individuel (micro-entrepreneur)<br>
+Enseigne : Dom&amp;Vie {{ contenu.agence }}<br>
+{{ contenu.adresse }}<br>
+SIREN : {{ contenu.siren }}<br>
+Téléphone : {{ contenu.telephone }}<br>
+E-mail : <a href="mailto:{{ contenu.email }}">{{ contenu.email }}</a></p>
+<p>Directeur de la publication : {{ contenu.gerant }}.</p>
 <p>Membre du réseau de franchise Dom&amp;Vie.</p>
 
 <h2>Assurance professionnelle</h2>
