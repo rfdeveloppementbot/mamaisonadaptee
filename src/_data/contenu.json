@@ -9,22 +9,22 @@
   "zone_texte": "Le déplacement est gratuit pour évaluer votre projet, de Lyon à Saint-Étienne et dans les communes alentour.",
   "realisations": [
     {
-      "commune": "Mornant",
-      "duree": "3 jours",
+      "commune": "Saint Genis Laval",
+      "duree": "2 jours",
       "titre": "Une douche de plain-pied sécurisée et accessible",
-      "image": ""
+      "image": "/images/montage_avant_apres_sdb17.png"
     },
     {
       "commune": "Brignais",
-      "duree": "2 jours",
-      "titre": "Un monte-escalier installé pour retrouver l'étage",
-      "image": ""
+      "duree": "3 jours",
+      "titre": "Une salle de bain rénovée et sécurisée ",
+      "image": "/images/montage_avant_apres_sdb.png"
     },
     {
-      "commune": "Chaponost",
+      "commune": "Charly",
       "duree": "5 jours",
       "titre": "Une salle de bain PMR moderne et autonome",
-      "image": ""
+      "image": "/images/montage_avant_apres_sdbv_1.png"
     }
   ],
   "projet_choix": [
