@@ -50,8 +50,8 @@
     }
   ],
   "hero_surtitre": "Aménagement PMR · Seniors · Maintien à domicile",
-  "hero_image_apres": "",
-  "hero_image_avant": "/images/capture-d’écran-2026-08-06-à-11.33.27.png",
+  "hero_image_apres": "/images/montage_apres_travaux_carre.jpg",
+  "hero_image_avant": "/images/montage_avant_travaux_carre.jpg",
   "atouts_gros_mot": "Taluyers",
   "aide_montant": "15 400 €*",
   "atouts_titre": "Une entreprise de votre secteur, pas un numéro dans un centre d'appel",
@@ -105,7 +105,7 @@
   "gerant": "Grégory Maindret",
   "contact_titre": "Parlons de votre projet",
   "solutions_texte": "Chaque chantier est réalisé sur mesure, chez vous, selon la mobilité et les habitudes de la personne.",
-  "hero_legende": "Transformation baignoire → douche sécurisée · Chantier réalisé sur le secteur",
+  "hero_legende": "De deux pièces vétustes et cloisonnées à un espace douche à l'italienne moderne",
   "hero_gages": [
     "Devis & visite gratuits",
     "De Lyon à Saint-Étienne",
@@ -214,6 +214,6 @@
   ],
   "realisations_texte": "Des chantiers menés chez vos voisins, de Brignais à Rive-de-Gier.",
   "zone_titre": "De Lyon à Saint-Étienne, et tout autour",
-  "projet_titre": "Décrivez-nous votre projet",
+  "projet_titre": "Ce projet consistait à repenser entièrement une salle d'eau vétuste, initialement divisée en deux pièces cloisonnées peu fonctionnelles. L'objectif : créer un espace unique, moderne et accessible, tout en optimisant chaque mètre carré disponible. La configuration a été entièrement revue pour intégrer une douche à l'italienne avec receveur extra-plat, garantissant une accessibilité optimale au quotidien. Les murs ont été habillés d'un revêtement grand format effet marbre, apportant caractère et luminosité à la pièce, complété par un sol PVC imitation bois pour une ambiance chaleureuse. Une verrière intérieure sur-mesure vient structurer l'espace et laisser passer la lumière naturelle entre les zones, tandis qu'un miroir avec éclairage LED intégré et un sèche-serviettes complètent cette rénovation pensée dans les moindres détails. Résultat : un espace fonctionnel, esthétique et adapté aux besoins de mobilité réduite, conforme à notre expertise en aménagement PMR.",
   "etapes_titre": "En 5 étapes, du premier contact à la mise en service"
 }
