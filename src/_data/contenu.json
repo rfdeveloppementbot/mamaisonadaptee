@@ -195,21 +195,51 @@
   "avis": [
     {
       "note": 5,
-      "texte": "Avis client à insérer depuis votre fiche Google.",
-      "auteur": "Prénom N.",
-      "commune": "Commune"
+      "texte": "Trouvé un peu par hasard, j'ai été complètement conquis par le 1er contact avec ce professionnel, tant sur le plan de ses conseils, que sur la réalisation du chantier. Les délais ont été parfaitement respectés. Je ne peux que vous conseiller ce professionnel pour la rénovation de votre salle de bains.",
+      "auteur": " Michel Guillaume",
+      "commune": "St Etienne"
     },
     {
       "note": 5,
-      "texte": "Avis client à insérer depuis votre fiche Google.",
-      "auteur": "Prénom N.",
-      "commune": "Commune"
+      "texte": "Je ne regrette vraiment pas d'avoir missionné Mr MAINDRET pour le chantier. Personne très gentille et très professionnelle. Très à l'écoute et toujours disponible",
+      "auteur": "Sandrine Forcione",
+      "commune": "Meyzieu"
     },
     {
       "note": 5,
-      "texte": "Avis client à insérer depuis votre fiche Google.",
-      "auteur": "Prénom N.",
-      "commune": "Commune"
+      "texte": "Nous avons fait rénover notre salle de bain/wc par la société Domevie Lyon-sud Ouest de Mornant avec Karine Maindret.\nCes travaux ont été réalisés par cette entreprise qui a été à notre écoute et très professionnelle, très disponible et à répondu à toutes nos questions.\nCette entreprise est spécialisée pour les situations d'handicap.\nNous recommandons sans problème si vous avez des projets pour réaliser des travaux pour les personnes handicapées vous pouvez avoir confiance en eux.\nOn en profite pour remercier toute leur équipe,.\nCette entreprise mérite d'être connue.",
+      "auteur": "Edith GARBI",
+      "commune": "Chassagny"
+    },
+    {
+      "note": 5,
+      "texte": "Excellent travail, exécuté dans les délais prévus, les prestataires d'excellents professionnels avec un vrai plus en tant que personnes. Je recommande !",
+      "auteur": "Claude Breuil",
+      "commune": "Oullins"
+    },
+    {
+      "note": 5,
+      "texte": "Entreprise sérieuse.\nLe clef en main est assuré.\nLe suivi du chantier est sérieux.\nLes travaux sont réalisés dsns les temps.\n\nJe vous les conseille.\n\nFranck",
+      "auteur": "franck fuze",
+      "commune": "Brignais"
+    },
+    {
+      "texte": "Excellent travail, exécuté dans les délais prévus, les prestataires d'excellents professionnels avec un vrai plus en tant que personnes. Je recommande !",
+      "note": 5,
+      "auteur": "Claude Breuil",
+      "commune": "Irigny"
+    },
+    {
+      "texte": "Remplacement d'une baignoire par une douche\nTotalement satisfait\nEcoute du client, travail dans les délais, effectué très proprement\nRésultat mieux qu'espéré !!\nJe recommande chaudement\nMerci",
+      "note": 5,
+      "auteur": "Michel Fontvieille",
+      "commune": "Saint Genis Laval"
+    },
+    {
+      "texte": "Le remplacement d'une baignoire par une douche sécurisée a été parfaitement réalisé par DOM et VIE tant sur le plan technique qu'esthétique. Je ne peux que féliciter les responsables et les intervenants. Je recommande DOM et VIE pour ce type d'aménagements.",
+      "note": 5,
+      "auteur": "Gilbert Joué",
+      "commune": "Oullins Pierre-Benite"
     }
   ],
   "realisations_texte": "Des chantiers menés chez vos voisins, de Brignais à Rive-de-Gier.",
